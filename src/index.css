@@ -17,7 +17,7 @@ body {
 }
 
 .box {
-  max-width: 400px;
+  max-width: 500px;
   width: 100%;
   margin: 10px;
   box-shadow: 1px 1px 10px rgb(222, 221, 221), -1px -1px 10px rgb(222, 221, 221);
@@ -44,6 +44,7 @@ form input::placeholder {
 .checkbox {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .checkbox > input {
@@ -62,10 +63,35 @@ form input::placeholder {
   cursor: pointer;
 }
 
-.options {
+.bi-three-dots-vertical {
   cursor: all-scroll;
+}
+
+.bi-trash {
+  cursor: pointer;
 }
 
 .checked {
   text-decoration: line-through;
+}
+
+[contenteditable] {
+  outline: 0 solid transparent;
+}
+
+.edit-mode {
+  background-color: yellow;
+}
+
+.todo-description {
+  width: 100%;
+  font-size: 17px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+}
+
+.todoList {
+  max-height: 500px;
+  overflow-y: scroll;
 }
