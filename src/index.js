@@ -1,9 +1,11 @@
 import './index.css';
 import { addTodo, deleteTodo, updateTodo } from './module/crud-operations.js';
+import { check, clearAllComplete } from './module/interaction.js';
 
 const todoList = document.querySelector('.todoList');
 const form = document.querySelector('form');
 const formInput = document.querySelector('form input');
+const clearAll = document.querySelector('.clearCompleted');
 
 const storedData = JSON.parse(localStorage.getItem('todos'));
 if (!storedData) localStorage.setItem('todos', '[]');
@@ -64,6 +66,11 @@ const setEditModeStyle = (loadData) => {
   });
 };
 
+const handleCheck = (index, loadData) => {
+  check(index);
+  loadData();
+};
+
 const createTodoEl = (data) => {
   const todo = document.createElement('li');
   todo.classList.add('data');
@@ -72,13 +79,14 @@ const createTodoEl = (data) => {
   const checked = data.complete ? 'checked' : undefined;
   todo.innerHTML = `
       <div class="checkbox">
-                      <input type="checkbox" ${checked} name="" id="check-todo">
+                      <input type="checkbox" ${checked} name="" id="check-todo" class="check${data.index}">
                       <p class="todo-description description${data.index} ${checked}">${data.description}</p>
                   </div>
                   <div class="option">
                       <i class="bi bi-three-dots-vertical options option${data.index}"></i>
                   </div>
       `;
+
   return todo;
 };
 
@@ -86,8 +94,13 @@ const loadData = () => {
   todoList.innerHTML = '';
   const dataList = getStoredData();
   dataList.forEach((data) => {
-    const todo = createTodoEl(data);
+    const todo = createTodoEl(data, loadData);
     todoList.appendChild(todo);
+    document
+      .querySelector(`.check${data.index}`)
+      .addEventListener('change', () => {
+        handleCheck(data.index, loadData);
+      });
   });
 
   setEditModeStyle(loadData);
@@ -114,3 +127,8 @@ form.addEventListener('submit', (e) => {
 });
 
 loadData();
+const clearEvent = clearAll.addEventListener('click', () => {
+  clearAllComplete();
+  loadData();
+  clearAll.removeEventListener('click', clearEvent);
+});
