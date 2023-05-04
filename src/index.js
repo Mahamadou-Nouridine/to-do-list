@@ -17,7 +17,6 @@ const setUpdateEventListener = (loadData) => {
       const index = Number(option.classList[1].split('description')[1]);
       updateTodo(index, option.textContent);
       loadData();
-      // updateTodo({description: option.textContent, completed:})
     }
   });
 };
