@@ -25,7 +25,7 @@
 
 # 📖 TO DO LIST<a name="about-project"></a>
 
-**TO DO LIST** is an application that is used to manage tasks you can add todo or update todo also you can remove the todo you finished from it
+TO DO LIST is an application that is used to manage tasks you can add todo or update todo also you can remove the todo you finished from it
 
 ## 🛠 Built With <a name="built-with"></a>
 
