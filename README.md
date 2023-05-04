@@ -25,7 +25,7 @@
 
 # 📖 TO DO LIST<a name="about-project"></a>
 
-**Awesome Books** is a medium-fidelity wireframe bookstore website
+**TO DO LIST** is an application that is used to manage tasks
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -107,7 +107,7 @@ To run tests, run the following commands:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/Mahamadou-Nouridine/My-Portfolio/issues).
+Feel free to check the [issues page](https://github.com/Mahamadou-Nouridine/to-do-list/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
