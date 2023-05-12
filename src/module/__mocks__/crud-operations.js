@@ -1,6 +1,6 @@
 let localData = [];
 
-const restructureData = (datas) => datas.map((el, index) => {
+const restructureData = (data) => data.map((el, index) => {
   el.index = index + 1;
   return el;
 });
