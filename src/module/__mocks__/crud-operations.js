@@ -1,10 +1,9 @@
-export let localData = [];
+let localData = [];
 
-const restructureData = (data) =>
-  data.map((el, index) => {
-    el.index = index + 1;
-    return el;
-  });
+const restructureData = (data) => data.map((el, index) => {
+  el.index = index + 1;
+  return el;
+});
 
 export const addTodo = (data) => {
   localData.push(data);

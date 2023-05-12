@@ -28,3 +28,4 @@ export const updateTodo = (index, description) => {
 };
 
 export const getData = () => JSON.parse(localStorage.getItem('todos'));
+export const updateLocalData = (data) => localStorage.setItem('todos', JSON.stringify(data));
