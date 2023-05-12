@@ -1,9 +1,10 @@
-let localData = [];
+export let localData = [];
 
-const restructureData = (data) => data.map((el, index) => {
-  el.index = index + 1;
-  return el;
-});
+const restructureData = (data) =>
+  data.map((el, index) => {
+    el.index = index + 1;
+    return el;
+  });
 
 export const addTodo = (data) => {
   localData.push(data);
@@ -24,6 +25,10 @@ export const updateTodo = (index, description) => {
   });
   const ordered = restructureData(updatedData);
   localData = ordered;
+};
+
+export const updateLocalData = (updatedData) => {
+  localData = updatedData;
 };
 
 export const getData = () => localData;
