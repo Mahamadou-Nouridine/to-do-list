@@ -26,3 +26,5 @@ export const updateTodo = (index, description) => {
   const ordered = restructureData(updatedData);
   localStorage.setItem('todos', JSON.stringify(ordered));
 };
+
+export const getData = () => JSON.parse(localStorage.getItem('todos'));
