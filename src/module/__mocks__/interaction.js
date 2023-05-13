@@ -1,9 +1,23 @@
-import { getData, updateLocalData } from '../crud-operations.js';
+import { getData, updateLocalData } from "../crud-operations.js";
 
-const restructureData = (data) => data.map((el, index) => {
-  el.index = index + 1;
-  return el;
-});
+const loadToDom = () => {
+  const todoList = document.querySelector(".todoList");
+  todoList.innerHTML = "";
+  const data = JSON.parse(localStorage.getItem("todos"));
+  data.forEach((element) => {
+    const listNode = document.createElement("li");
+    listNode.id = `list-item-${element.index}`;
+    listNode.classList.add(`list-item`);
+    listNode.textContent = `${element.description}`;
+    todoList.appendChild(listNode);
+  });
+};
+
+const restructureData = (data) =>
+  data.map((el, index) => {
+    el.index = index + 1;
+    return el;
+  });
 
 export const check = (index) => {
   const storedData = getData();
@@ -11,13 +25,15 @@ export const check = (index) => {
     if (data.index === index) data.completed = !data.completed;
     return data;
   });
-  updateLocalData(updatedData);
+  localStorage.setItem("todos", JSON.stringify(updatedData));
+  loadToDom()
 };
 
 export const clearAllComplete = () => {
   const storedData = getData();
   const updatedData = storedData.filter((data) => !data.completed);
-  updateLocalData(restructureData(updatedData));
+  localStorage.setItem("todos", JSON.stringify(restructureData(updatedData)));
+  loadToDom()
 };
 
 export const getCompleted = () => {
